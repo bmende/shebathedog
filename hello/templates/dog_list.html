@@ -16,7 +16,7 @@
             <td>{{ dog_name }}</td>
             <td>
                 {% for owner in dog_owners %}
-                    {{ owner }},
+                    {{ owner }}{% if not forloop.last %},{% endif %}
                 {% endfor %}
             </td>
         </tr>
