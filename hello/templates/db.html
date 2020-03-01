@@ -2,19 +2,24 @@
 {% load static %}
 
 {% block content %}
-  <div class="container">
+<div class="container">
 
 
-<h2>Page View Report</h2>
-
-
-<ul>
-
-{% for greeting in greetings %}
-    <li>{{ greeting.when }}</li>
-{% endfor %}
-
-</ul>
+    <h2>Page View Report</h2>
+    <table class="table">
+        <thead>
+            <th>User</th>
+            <th>IP Address</th>
+            <th>Time of Visit</th>
+        </thead>
+        {% for greeting in greetings %}
+        <tr>
+            <td>{{ greeting.who }}</td>
+            <td>{{ greeting.where }}</td>
+            <td>{{ greeting.when }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
 </div>
 

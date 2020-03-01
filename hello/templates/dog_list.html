@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+
+    <h2>All of the Dogs on the site, and their owners!</h2>
+    <table class="table">
+        <thead>
+            <th>Dog</th>
+            <th>Owners</th>
+        </thead>
+        {% for dog_name, dog_owners in dog_ownership_dict.items %}
+        <tr>
+            <td>{{ dog_name }}</td>
+            <td>
+                {% for owner in dog_owners %}
+                    {{ owner }},
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}
