@@ -7,7 +7,7 @@ class Greeting(models.Model):
     who = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
-        null=True
+        null=True, blank=True
     )
     where = models.CharField("the address the user made the request from", max_length=250)
 

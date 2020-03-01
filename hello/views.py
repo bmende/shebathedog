@@ -16,13 +16,10 @@ def index(request):
 def db(request):
     greeting = Greeting()
 
-    if request.user is not None:
+    if not request.user.is_anonymous:
         greeting.who = request.user
-    else:
-        greeting.who = "anonymous"
 
     greeting.where = request.META.get("REMOTE_ADDR", "unknown")
-
 
     greeting.save()
 
