@@ -3,7 +3,7 @@ from collections import defaultdict
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting, Dog, Ownership
+from .models import Greeting, Dog
 
 # Create your views here.
 def index(request):
@@ -29,15 +29,12 @@ def db(request):
 
 def dog_listing(request):
 
-    owners_list = Ownership.objects.all().values_list("dog__name", "owner__first_name")
-
-
+    dogs = Dog.objects.all().values_list('name', 'owners__username')
     ownership_dict = dict()
-    for dog, name in owners_list:
-        if not ownership_dict.get(dog, False):
-            ownership_dict[dog] = list()
-        ownership_dict[dog].append(name)
-
+    for dog_name, owner_username in dogs:
+        if dog_name not in ownership_dict:
+            ownership_dict[dog_name] = list()
+        ownership_dict[dog_name].append(owner_username)
 
     return render(request, "dog_list.html", {"dog_ownership_dict": ownership_dict})
 

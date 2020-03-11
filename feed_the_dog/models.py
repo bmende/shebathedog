@@ -13,13 +13,4 @@ class Greeting(models.Model):
 
 class Dog(models.Model):
     name = models.CharField("name of the dog!", max_length=250)
-
-class Ownership(models.Model):
-    owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
-    dog = models.ForeignKey(
-        Dog,
-        on_delete=models.CASCADE
-    )
+    owners = models.ManyToManyField(settings.AUTH_USER_MODEL)

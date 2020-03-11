@@ -1,6 +1,6 @@
  {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "Sheba the Dog",
+  "description": "An app dedicated to Sheba, who is a dog.",
   "image": "heroku/python",
   "repository": "https://github.com/bmende/shebathedog.git"
   "keywords": ["python", "django" ],

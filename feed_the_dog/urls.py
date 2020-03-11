@@ -4,7 +4,7 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-import hello.views
+import feed_the_dog.views as views
 
 # To add a new path, first import the app:
 # import blog
@@ -15,8 +15,7 @@ import hello.views
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", hello.views.index, name="index"),
-    path("db/", hello.views.db, name="db"),
-    path("dogs/", hello.views.dog_listing, name="dogs"),
-    path("admin/", admin.site.urls),
+    path("", views.index, name="index"),
+    path("db/", views.db, name="db"),
+    path("dogs/", views.dog_listing, name="dogs")
 ]
