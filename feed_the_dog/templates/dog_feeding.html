@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron text-center {{ feed_class }}">
+    <div class="container">
+        <h1>Feeding {{ dogs | title }}</h1>
+        {% if last_fed is None %}
+        <p>{{ last_feeder | title }}! This is your first time feeding the dog!</p>
+        {% else %}
+        <p>{{ last_feeder | title }} was the last to feed {{ dogs | title }} at {{ last_fed }}</p>
+        {% endif %}
+        <form action="{% url 'feed_dog' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" {% if disable_feed %}disabled{% endif %}>Feed the Dog!</button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="alert alert-info text-center" role="alert">
+        This page is still being built. Please come back for more features and information about Sheba the dog soon.
+    </div>
+</div>
+{% endblock %}

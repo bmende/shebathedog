@@ -17,5 +17,6 @@ import feed_the_dog.views as views
 urlpatterns = [
     path("", views.index, name="index"),
     path("db/", views.db, name="db"),
-    path("dogs/", views.dog_listing, name="dogs")
+    path("dogs/", views.dog_listing, name="dogs"),
+    path("feed_the_dog/", views.feed_the_dog, name="feed_dog"),
 ]

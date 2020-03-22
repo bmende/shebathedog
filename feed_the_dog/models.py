@@ -14,3 +14,12 @@ class Greeting(models.Model):
 class Dog(models.Model):
     name = models.CharField("name of the dog!", max_length=250)
     owners = models.ManyToManyField(settings.AUTH_USER_MODEL)
+
+class Feeding(models.Model):
+    dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
+    feeder = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True, blank=True
+    )
+    when = models.DateTimeField("datetime fed", auto_now_add=True)
