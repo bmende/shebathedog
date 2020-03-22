@@ -76,7 +76,7 @@ def feed_the_dog(request):
     else:
         feed_class = "danger"
 
-    dog_names = "".join(list(dogs.values_list("name", flat=True)))
+    dog_names = ", ".join(list(dogs.values_list("name", flat=True)))
 
     if not feeds:
         last_fed = None
